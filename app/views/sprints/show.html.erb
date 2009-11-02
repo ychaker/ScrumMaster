@@ -26,7 +26,8 @@
 
 <%= link_to 'Edit', edit_sprint_path(@sprint) %> |
 <%= link_to 'Back', sprints_path %> |
-<%= link_to 'Add Task', :controller => :tasks, :action => :new, :params => {:id => @sprint.id} %>
+<%= link_to 'Add Task', :controller => :tasks, :action => :new, :params => {:id => @sprint.id} %> |
+<%= link_to 'Workload', :action => :workload, :params => {:id => @sprint.id} %>
 
 <table>
 	<th>Task</th>
@@ -47,6 +48,7 @@
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 		<td>Actual</td>
 		<td><%= @sprint.initial_sum %></td>
 		<% @sprint.sum_per_day.each { |each| %>
@@ -55,6 +57,7 @@
 	</tr>
 	
 	<tr>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -72,6 +75,7 @@
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 		<td>Low Estimate</td>
 		<% @sprint.low_estimate.each { |each| %>
 			<td> <%= each %> </td> 
@@ -79,6 +83,7 @@
 	</tr>
 	
 	<tr>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>

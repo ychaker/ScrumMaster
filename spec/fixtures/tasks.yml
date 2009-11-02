@@ -5,9 +5,9 @@ one:
   started: 2009-10-31
   found: 
   done: 
-  low_estimate: 1
-  high_estimate: 1
-  initial_estimate: 1
+  low_estimate: 3
+  high_estimate: 5
+  initial_estimate: 4
   sprint_id: 1
 
 two:
@@ -15,7 +15,7 @@ two:
   started: 2009-10-31
   found: 
   done: 
-  low_estimate: 1
-  high_estimate: 1
-  initial_estimate: 1
+  low_estimate: 2
+  high_estimate: 3
+  initial_estimate: 2
   sprint_id: 1

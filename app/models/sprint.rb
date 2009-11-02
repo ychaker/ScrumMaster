@@ -1,4 +1,8 @@
+require "rubygems"
+require "gchart"
+
 class Sprint < ActiveRecord::Base
+  
   has_many :tasks
   validate :end_date_greater
   
@@ -15,6 +19,9 @@ class Sprint < ActiveRecord::Base
     (self.start_date..self.end_date).reject { |d| [0,6].include? d.wday } 
   end
   
+  ###########################
+  # Sums and estimates
+  ###########################
   def initial_sum
     self.tasks.inject(0){|sum,item| sum + item.initial_estimate}
   end
@@ -69,5 +76,58 @@ class Sprint < ActiveRecord::Base
       }
     end
     sum
+  end
+  
+  
+  ###########################
+  # Users
+  ###########################
+  def sprint_users
+    all = []
+    self.tasks.each { 
+      |t| 
+      all << t.user unless t.user.nil? 
+    }
+    all.uniq
+  end
+  
+  ###########################
+  # Burndown
+  ###########################
+  def burndown
+    workdays = self.workdays
+    today = workdays.include?(Date.today) ? workdays.index(Date.today) : 1
+    chart = GChart.line do |g|
+      g.data   = [self.low_estimate,  self.high_estimate, self.two_thirds_estimate, self.sum_per_day]
+      g.colors = [:green,             :red,               :yellow,                  :blue]
+      g.legend = ["Low",              "High",             "2/3",                    "Actual"]
+      g.extras = { "chm" => "R,A0BAE9,0," + (1.0*today/workdays.length).to_s + "," + (1.0*today/workdays.length+0.01).to_s + "|o,0066FF,0,-1,6|o,0066FF,1,-1,6|o,0066FF,2,-1,6|o,0066FF,3,-1,6" }
+
+      g.width             = 800
+      g.height            = 300
+      g.entire_background = "f4f4f4"
+
+      g.axis :left do |a| 
+        a.range = 0..self.high_estimate.max
+        a.labels = self.high_estimate.sort
+        a.text_color      = :black
+      end
+
+      g.axis :bottom do |a|
+        a.labels          = workdays.collect { |day| day.to_s(:short) }
+        a.text_color      = :black
+      end
+
+      g.axis :bottom do |a|
+        a.labels          = ["Days"]
+        a.label_positions = [50]
+      end
+      
+      g.axis :left do |a|
+        a.labels          = ["Hours"]
+        a.label_positions = [50]
+      end
+    end
+    chart
   end
 end

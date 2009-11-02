@@ -127,5 +127,13 @@ describe SprintsController do
       response.should redirect_to(sprints_url)
     end
   end
+  
+  describe "GET sprint workload" do
+    it "redirect to the sprint workload page" do
+      Sprint.stub!(:find).with("37").and_return(mock_sprint)
+      get :workload, :id => "37"
+      assigns[:sprint].should equal(mock_sprint)
+    end
+  end
 
 end

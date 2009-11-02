@@ -1,0 +1,19 @@
+<h2>Workload</h2>
+<p>
+  <b>Sprint:</b>
+  <%=h @sprint.title %>
+</p>
+
+<% for user in @sprint.sprint_users %>
+	<p>
+	  <b><%=h user.initials %>:</b>
+	  <%=h user.sprint_initial_workload @sprint.id %> |
+		<%=h user.sprint_remaining_workload @sprint.id %>
+	</p>
+<% end %>
+
+<p>
+	<%= burndown @sprint %>
+</p>
+
+<%= link_to 'Back', sprint_path(@sprint) %>

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect 'sprints/workload/:id', :controller => 'sprints', :action => 'workload'
   map.resources :users
 
   map.resources :tasks

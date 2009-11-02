@@ -82,4 +82,15 @@ class SprintsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # GET /sprints/workload/1
+  # GET /sprints/workload/1.xml
+  def workload
+    @sprint = Sprint.find(params[:id])
+
+    respond_to do |format|
+      format.html # workload.html.erb
+      format.xml  { render :xml => @sprint }
+    end
+  end
 end
