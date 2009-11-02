@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  theme: MyString
+  start_date: 2009-10-29
+  end_date: 2009-10-31
+  number_of_days: 2
+
+two:
+  title: MyString
+  theme: MyString
+  start_date: 2009-10-28
+  end_date: 2009-10-31
+  number_of_days: 3

@@ -1,0 +1,96 @@
+<p>
+  <b>Title:</b>
+  <%=h @sprint.title %>
+</p>
+
+<p>
+  <b>Theme:</b>
+  <%=h @sprint.theme %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @sprint.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @sprint.end_date %>
+</p>
+
+<p>
+  <b>Number of days:</b>
+  <%=h @sprint.number_of_days %>
+</p>
+
+
+<%= link_to 'Edit', edit_sprint_path(@sprint) %> |
+<%= link_to 'Back', sprints_path %> |
+<%= link_to 'Add Task', :controller => :tasks, :action => :new, :params => {:id => @sprint.id} %>
+
+<table>
+	<th>Task</th>
+	<th>Started</th>
+	<th>Found?</th>
+	<th>Done?</th>
+	<th>Who</th>
+	<th>Low Estimate</th>
+	<th>High Estimate</th>
+	<th>Initial Estimate</th>
+	<% for workday in @sprint.workdays %>
+		<th><%= workday.to_s(:short) %></th>
+	<% end %>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>Actual</td>
+		<td><%= @sprint.initial_sum %></td>
+		<% @sprint.sum_per_day.each { |each| %>
+			<td> <%= each %> </td> 
+		<% } %>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>2/3 Estimate</td>
+		<% @sprint.two_thirds_estimate.each { |each| %>
+			<td> <%= each %> </td> 
+		<% } %>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>Low Estimate</td>
+		<% @sprint.low_estimate.each { |each| %>
+			<td> <%= each %> </td> 
+		<% } %>
+	</tr>
+	
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>High Estimate</td>
+		<% @sprint.high_estimate.each { |each| %>
+			<td> <%= each %> </td> 
+		<% } %>
+	</tr>
+	<% for task in @sprint.tasks %>
+		<%= render :partial => "/tasks/task_partial", :locals => { :task => task } %>
+	<% end %>
+</table>
+

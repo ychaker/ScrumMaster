@@ -1,0 +1,8 @@
+<option value=""> </option>
+<% @users.each do |user| %>
+	<% if user.id == @task_user_id %>
+		<option value="<%= user.id %>" selected="selected"><%= user.initials %></option>
+	<% else %>
+		<option value="<%= user.id %>"><%= user.initials %></option>
+	<% end %>
+<% end %>

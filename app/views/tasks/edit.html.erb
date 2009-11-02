@@ -1,0 +1,42 @@
+<h1>Editing task</h1>
+
+<% form_for(@task, :builder => ScrumBuilder) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :started %><br />
+    <%= f.date_select :started, :include_blank => true %>
+  </p>
+  <p>
+    <%= f.label :found %><br />
+    <%= f.text_field :found %>
+  </p>
+  <p>
+    <%= f.label :done %><br />
+    <%= f.text_field :done %>
+  </p>
+  <p>
+    <%= f.label :low_estimate %><br />
+    <%= f.fibonacci_select 'low_estimate' %>
+  </p>
+  <p>
+    <%= f.label :high_estimate %><br />
+    <%= f.fibonacci_select 'high_estimate' %>
+  </p>
+	<% @users = User.find(:all, :order => "name").map { |u| [u.initials, u.id] } %>
+	<p>
+		<%= f.label "User"%><br />
+		<%= f.select(:user_id, @users, {:include_blank => true}) %>
+	</p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @task %> |
+<%= link_to 'Back', tasks_path %> |
+<%= link_to 'Back to Sprint', sprint_path(@task.sprint) %>

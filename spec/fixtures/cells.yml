@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  day: 2009-11-01
+  hours: 1
+  task_id: 1
+
+two:
+  day: 2009-11-01
+  hours: 1
+  task_id: 1

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  started: 2009-10-31
+  found: 
+  done: 
+  low_estimate: 1
+  high_estimate: 1
+  initial_estimate: 1
+  sprint_id: 1
+
+two:
+  title: MyString
+  started: 2009-10-31
+  found: 
+  done: 
+  low_estimate: 1
+  high_estimate: 1
+  initial_estimate: 1
+  sprint_id: 1

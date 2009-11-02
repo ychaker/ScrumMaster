@@ -1,0 +1,39 @@
+<p>
+  <b>Title:</b>
+  <%=h @task.title %>
+</p>
+
+<p>
+  <b>Started:</b>
+  <%=h @task.started %>
+</p>
+
+<p>
+  <b>Found:</b>
+  <%=h @task.found %>
+</p>
+
+<p>
+  <b>Done:</b>
+  <%=h @task.done %>
+</p>
+
+<p>
+  <b>Low estimate:</b>
+  <%=h @task.low_estimate %>
+</p>
+
+<p>
+  <b>Hight estimate:</b>
+  <%=h @task.high_estimate %>
+</p>
+
+<p>
+  <b>Initial estimate:</b>
+  <%=h @task.initial_estimate %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path() %> |
+<%= link_to 'Back to Sprint', sprint_path(@task.sprint) %>

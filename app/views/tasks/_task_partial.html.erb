@@ -1,0 +1,13 @@
+<tr>
+	<td><%=h task.title %></td>
+	<td><%=h task.started %></td>
+	<td><%=h task.found %></td>
+	<td><%=h task.done %></td>
+	<td><%=h task.user.initials unless task.user.nil? %>
+	<td><%=h task.low_estimate %></td>
+	<td><%=h task.high_estimate %></td>
+	<td><%=h task.initial_estimate %></td>
+	<% for cell in task.cells %>
+		<td><%=h cell.hours %>
+	<% end %>
+</tr>
