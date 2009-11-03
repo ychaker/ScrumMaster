@@ -111,7 +111,7 @@ class Sprint < ActiveRecord::Base
       g.entire_background = "f4f4f4"
 
       g.axis :left do |a| 
-        a.range = 0..self.high_estimate.max
+        a.range = 0..[self.high_estimate.max, self.actual.max].max
         a.labels = self.high_estimate.sort
         a.text_color      = :black
       end
@@ -170,7 +170,7 @@ class Sprint < ActiveRecord::Base
     line4.values = data4
 
     y = YAxis.new
-    y.set_range(0,self.high_estimate.max,5)
+    y.set_range(0,[data2.max, data4.max].max,5)
 
     workdays = self.workdays.collect { |day| day.to_s(:short) }
     tmp = []
