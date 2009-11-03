@@ -44326,3 +44326,203 @@ Processing SprintsController#burndown to json (for 127.0.0.1 at 2009-11-03 13:47
   [4;35;1mCell Load (0.6ms)[0m   [0mSELECT * FROM `cells` WHERE (`cells`.task_id = 10) ORDER BY day ASC[0m
   [4;36;1mCell Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `cells`[0m
 Completed in 90ms (View: 10, DB: 26) | 200 OK [http://localhost/sprints/burndown/3.json]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:52:15) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mSprint Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (1.2ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 3) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;35;1mTask Load (0.3ms)[0m   [0mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 3) [0m
+  [4;36;1mTask Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `tasks`[0m
+  [4;35;1mCell Load (0.4ms)[0m   [0mSELECT * FROM `cells` WHERE (`cells`.task_id = 10) ORDER BY day ASC[0m
+  [4;36;1mCell Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `cells`[0m
+Rendered tasks/_task_partial (4.5ms)
+Completed in 57ms (View: 41, DB: 7) | 200 OK [http://localhost/sprints/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#index (for 127.0.0.1 at 2009-11-03 13:52:21) [GET]
+  [4;35;1mSprint Load (0.4ms)[0m   [0mSELECT * FROM `sprints` [0m
+Rendering template within layouts/sprints
+Rendering sprints/index
+  [4;36;1mSprint Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+Completed in 96ms (View: 11, DB: 2) | 200 OK [http://localhost/sprints]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#destroy (for 127.0.0.1 at 2009-11-03 13:52:26) [DELETE]
+  Parameters: {"authenticity_token"=>"VLYRIDk+jcDwLTRDsIwsuVM+7769DTfsg+wbAqN/TSA=", "id"=>"3"}
+  [4;35;1mSprint Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (1.8ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 3) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSprint Destroy (0.2ms)[0m   [0;1mDELETE FROM `sprints` WHERE `id` = 3[0m
+  [4;35;1mSQL (90.8ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/sprints
+Completed in 106ms (DB: 95) | 302 Found [http://localhost/sprints/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#index (for 127.0.0.1 at 2009-11-03 13:52:26) [GET]
+  [4;36;1mSprint Load (0.3ms)[0m   [0;1mSELECT * FROM `sprints` [0m
+Rendering template within layouts/sprints
+Rendering sprints/index
+  [4;35;1mSprint Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+Completed in 15ms (View: 5, DB: 2) | 200 OK [http://localhost/sprints]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:52:28) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSprint Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+  [4;35;1mSprint Load (1.3ms)[0m   [0mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;36;1mTask Load (1.6ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 22ms (View: 9, DB: 5) | 200 OK [http://localhost/sprints/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#edit (for 127.0.0.1 at 2009-11-03 13:52:35) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSprint Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (1.7ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/edit
+Completed in 23ms (View: 12, DB: 3) | 200 OK [http://localhost/sprints/2/edit]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#update (for 127.0.0.1 at 2009-11-03 13:52:42) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"VLYRIDk+jcDwLTRDsIwsuVM+7769DTfsg+wbAqN/TSA=", "id"=>"2", "sprint"=>{"end_date(3i)"=>"31", "start_date(1i)"=>"2009", "start_date(2i)"=>"10", "start_date(3i)"=>"25", "theme"=>"22222s", "title"=>"sprint 2", "end_date(1i)"=>"2009", "end_date(2i)"=>"10"}}
+  [4;35;1mSprint Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (0.2ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSprint Update (0.3ms)[0m   [0;1mUPDATE `sprints` SET `updated_at` = '2009-11-03 18:52:42', `start_date` = '2009-10-25', `number_of_days` = 5 WHERE `id` = 2[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/sprints/2
+Completed in 20ms (DB: 5) | 302 Found [http://localhost/sprints/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:52:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSprint Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+  [4;35;1mSprint Load (0.6ms)[0m   [0mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 20ms (View: 10, DB: 3) | 200 OK [http://localhost/sprints/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#index (for 127.0.0.1 at 2009-11-03 13:52:50) [GET]
+  [4;35;1mSprint Load (0.3ms)[0m   [0mSELECT * FROM `sprints` [0m
+Rendering template within layouts/sprints
+Rendering sprints/index
+  [4;36;1mSprint Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+Completed in 18ms (View: 6, DB: 2) | 200 OK [http://localhost/sprints]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:52:58) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSprint Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (1.5ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;35;1mTask Load (0.6ms)[0m   [0mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 22ms (View: 10, DB: 4) | 200 OK [http://localhost/sprints/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#burndown (for 127.0.0.1 at 2009-11-03 13:53:00) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSprint Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+  [4;35;1mSprint Load (1.7ms)[0m   [0mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/burndown
+  [4;36;1mTask Load (0.4ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 27ms (View: 14, DB: 4) | 200 OK [http://localhost/sprints/burndown/2]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#burndown to json (for 127.0.0.1 at 2009-11-03 13:53:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSprint Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (1.3ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+  [4;35;1mTask Load (0.3ms)[0m   [0mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 23ms (View: 3, DB: 4) | 200 OK [http://localhost/sprints/burndown/2.json]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#workload (for 127.0.0.1 at 2009-11-03 13:53:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSprint Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+  [4;35;1mSprint Load (0.5ms)[0m   [0mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/workload
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 18ms (View: 7, DB: 3) | 200 OK [http://localhost/sprints/workload/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:53:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSprint Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (1.4ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;35;1mTask Load (0.3ms)[0m   [0mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 21ms (View: 10, DB: 3) | 200 OK [http://localhost/sprints/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#set_sprint_end_date (for 127.0.0.1 at 2009-11-03 13:53:30) [POST]
+  Parameters: {"authenticity_token"=>"VLYRIDk+jcDwLTRDsIwsuVM+7769DTfsg+wbAqN/TSA=", "id"=>"2", "value"=>"2009-10-30", "editorId"=>"sprint_end_date_2_in_place_editor"}
+
+ActionController::UnknownAction (No action responded to set_sprint_end_date. Actions: burndown, create, destroy, edit, index, new, set_sprint_theme, set_sprint_title, show, update, update_cell, and workload):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:54:11) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mSprint Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `sprints`[0m
+  [4;35;1mSprint Load (1.5ms)[0m   [0mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 25ms (View: 13, DB: 4) | 200 OK [http://localhost/sprints/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SprintsController#show (for 127.0.0.1 at 2009-11-03 13:54:14) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSprint Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `sprints`[0m
+  [4;36;1mSprint Load (0.4ms)[0m   [0;1mSELECT * FROM `sprints` WHERE (`sprints`.`id` = 2) [0m
+Rendering template within layouts/sprints
+Rendering sprints/show
+  [4;35;1mTask Load (0.3ms)[0m   [0mSELECT * FROM `tasks` WHERE (`tasks`.sprint_id = 2) [0m
+Completed in 91ms (View: 78, DB: 3) | 200 OK [http://localhost/sprints/2]
