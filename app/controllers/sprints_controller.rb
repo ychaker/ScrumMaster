@@ -1,4 +1,8 @@
 class SprintsController < ApplicationController
+  in_place_edit_for :sprint, :title
+  in_place_edit_for :sprint, :theme
+  
+  
   # GET /sprints
   # GET /sprints.xml
   def index
@@ -92,5 +96,31 @@ class SprintsController < ApplicationController
       format.html # workload.html.erb
       format.xml  { render :xml => @sprint }
     end
+  end
+  
+  # GET /sprints/burndown/1
+  # GET /sprints/burndown/1.json
+  def burndown
+    @sprint = Sprint.find(params[:id])
+
+    respond_to do |format|
+      format.html { 
+        @graph = open_flash_chart_object(800, 500, url_for( :action => 'burndown', :id => params[:id], :format => :json )) 
+      }
+      format.json { 
+        chart = @sprint.flash_burndown
+        render :text => chart, :layout => false
+      }
+    end
+  end
+  
+  # PUT /sprints/update_cell/1
+  # PUT /sprints/update_cell/1.xml
+  def update_cell
+    @cell = Cell.find(params[:id])
+    @target  = params[:value]
+    @cell.hours = @target
+    @cell.save
+    render :text => @cell.hours
   end
 end

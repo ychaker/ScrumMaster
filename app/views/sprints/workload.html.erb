@@ -1,4 +1,4 @@
-<h2>Workload</h2>
+<h1>Workload</h1>
 <p>
   <b>Sprint:</b>
   <%=h @sprint.title %>
@@ -11,9 +11,5 @@
 		<%=h user.sprint_remaining_workload @sprint.id %>
 	</p>
 <% end %>
-
-<p>
-	<%= burndown @sprint %>
-</p>
 
 <%= link_to 'Back', sprint_path(@sprint) %>

@@ -1,0 +1,15 @@
+<h1>Burndown</h1>
+<p>
+  <b>Sprint:</b>
+  <%=h @sprint.title %>
+</p>
+
+<p>
+	<%= @graph %>
+</p>
+
+<p>
+	<%= burndown @sprint %>
+</p>
+
+<%= link_to 'Back', sprint_path(@sprint) %>

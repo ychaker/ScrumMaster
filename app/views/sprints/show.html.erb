@@ -1,21 +1,21 @@
 <p>
   <b>Title:</b>
-  <%=h @sprint.title %>
+  <%= in_place_editor_field :sprint, 'title' %>
 </p>
 
 <p>
   <b>Theme:</b>
-  <%=h @sprint.theme %>
+  <%= in_place_editor_field :sprint, 'theme' %>
 </p>
 
 <p>
   <b>Start date:</b>
-  <%=h @sprint.start_date %>
+  <%= in_place_editor_field :sprint, 'start_date' %>
 </p>
 
 <p>
   <b>End date:</b>
-  <%=h @sprint.end_date %>
+  <%= in_place_editor_field :sprint, 'end_date' %>
 </p>
 
 <p>
@@ -27,7 +27,8 @@
 <%= link_to 'Edit', edit_sprint_path(@sprint) %> |
 <%= link_to 'Back', sprints_path %> |
 <%= link_to 'Add Task', :controller => :tasks, :action => :new, :params => {:id => @sprint.id} %> |
-<%= link_to 'Workload', :action => :workload, :params => {:id => @sprint.id} %>
+<%= link_to 'Workload', :action => :workload, :params => {:id => @sprint.id} %> |
+<%= link_to 'Burndown', :action => :burndown, :params => {:id => @sprint.id} %>
 
 <table>
 	<th>Task</th>

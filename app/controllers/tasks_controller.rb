@@ -1,4 +1,8 @@
 class TasksController < ApplicationController
+  in_place_edit_for :sprint, :title
+  in_place_edit_for :sprint, :started
+  in_place_edit_for :sprint, :found
+  
   # GET /tasks
   # GET /tasks.xml
   def index

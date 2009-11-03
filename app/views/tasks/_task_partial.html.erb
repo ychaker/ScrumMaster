@@ -1,5 +1,5 @@
 <tr>
-	<td><%=h task.title %></td>
+	<td><%= link_to task.title, edit_task_path(task) %></td>
 	<td><%=h task.started %></td>
 	<td><%=h task.found %></td>
 	<td><%=h task.done %></td>
@@ -8,6 +8,9 @@
 	<td><%=h task.high_estimate %></td>
 	<td><%=h task.initial_estimate %></td>
 	<% for cell in task.cells %>
-		<td><%=h cell.hours %>
+		<td><span id="hours_<%= cell.id %>"><%=h cell.hours %></span>
+				<%= in_place_editor  "hours_#{cell.id}", 
+                        {:url => url_for(:action => "update_cell", :id => cell.id) } %>
+		</td>
 	<% end %>
 </tr>
