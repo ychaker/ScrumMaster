@@ -95,7 +95,7 @@
 			<td> <%= each %> </td> 
 		<% } %>
 	</tr>
-	<% for task in @sprint.tasks %>
+	<% for task in @sprint.tasks.ordered(@sort)  %>
 		<%= render :partial => "/tasks/task_partial", :locals => { :task => task } %>
 	<% end %>
 </table>

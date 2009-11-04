@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th <%= sort_th_class_helper "title" %>><%= sort_link_helper "Title", "title" %></th>
+    <th <%= sort_th_class_helper "theme" %>><%= sort_link_helper "Theme", "theme" %></th>
+    <th <%= sort_th_class_helper "start_date" %>><%= sort_link_helper "Start Date", "start_date" %></th>
+    <th <%= sort_th_class_helper "end_date" %>><%= sort_link_helper "End Date", "end_date" %></th>
+    <th <%= sort_th_class_helper "number_of_days" %>><%= sort_link_helper "Number of Days", "number_of_days" %></th>
+  </tr>
+
+<% @sprints.each do |sprint| %>
+  <tr>
+    <td><%=h sprint.title %></td>
+    <td><%=h sprint.theme %></td>
+    <td><%=h sprint.start_date %></td>
+    <td><%=h sprint.end_date %></td>
+    <td><%=h sprint.number_of_days %></td>
+    <td><%= link_to 'Show', sprint %></td>
+    <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
+    <td><%= link_to 'Destroy', sprint, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

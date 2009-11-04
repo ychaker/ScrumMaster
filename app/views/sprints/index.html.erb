@@ -1,27 +1,10 @@
 <h1>Listing sprints</h1>
+<%#= image_tag("spinner.gif",
+              :border => 0,
+              :id => "spinner",
+              :style =>"display: none;" ) %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Theme</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Number of days</th>
-  </tr>
-
-<% @sprints.each do |sprint| %>
-  <tr>
-    <td><%=h sprint.title %></td>
-    <td><%=h sprint.theme %></td>
-    <td><%=h sprint.start_date %></td>
-    <td><%=h sprint.end_date %></td>
-    <td><%=h sprint.number_of_days %></td>
-    <td><%= link_to 'Show', sprint %></td>
-    <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
-    <td><%= link_to 'Destroy', sprint, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => "sprints_list", :locals => { :sprints => @sprints } %>
 
 <br />
 

@@ -6,11 +6,22 @@ class SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.xml
   def index
-    @sprints = Sprint.all
+    sort =  case params[:sort]
+            when "title"  then "title"
+            when "theme"   then "theme"
+            when "start_date" then "start_date"
+            when "number_of_days" then "number_of_days"
+            when "title_reverse"  then "title DESC"
+            when "theme_reverse"   then "theme DESC"
+            when "start_date_reverse" then "start_date DESC"
+            when "number_of_days_reverse" then "number_of_days DESC"
+            end
+    
+    @sprints = Sprint.find :all, :order => sort
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @sprints }
+      format.xml  { render :partial => "sprints_list", :layout => false }
     end
   end
 
@@ -18,6 +29,7 @@ class SprintsController < ApplicationController
   # GET /sprints/1.xml
   def show
     @sprint = Sprint.find(params[:id])
+    @sort = params[:sort]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -123,4 +135,5 @@ class SprintsController < ApplicationController
     @cell.save
     render :text => @cell.hours
   end
+
 end

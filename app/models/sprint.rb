@@ -4,6 +4,7 @@ require "gchart"
 class Sprint < ActiveRecord::Base
   
   has_many :tasks
+  has_many :users, :through => :tasks, :uniq => true
   validate :end_date_greater
   
   def end_date_greater
@@ -81,18 +82,7 @@ class Sprint < ActiveRecord::Base
   def actual
     [self.initial_sum] + self.sum_per_day
   end
-  
-  ###########################
-  # Users
-  ###########################
-  def sprint_users
-    all = []
-    self.tasks.each { 
-      |t| 
-      all << t.user unless t.user.nil? 
-    }
-    all.uniq
-  end
+
   
   ###########################
   # Burndown

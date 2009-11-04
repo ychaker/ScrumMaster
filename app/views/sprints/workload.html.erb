@@ -4,7 +4,7 @@
   <%=h @sprint.title %>
 </p>
 
-<% for user in @sprint.sprint_users %>
+<% for user in @sprint.users %>
 	<p>
 	  <b><%=h user.initials %>:</b>
 	  <%=h user.sprint_initial_workload @sprint.id %> |

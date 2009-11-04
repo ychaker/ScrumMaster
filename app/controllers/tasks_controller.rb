@@ -6,11 +6,22 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = Task.all
+    sort =  case params[:sort]
+            when "title"  then "title"
+            when "started"   then "started"
+            when "done" then "done"
+            when "initial_estimate" then "initial_estimate"
+            when "title_reverse"  then "title DESC"
+            when "started_reverse"   then "started DESC"
+            when "done_reverse" then "done DESC"
+            when "initial_estimate_reverse" then "initial_estimate DESC"
+            end
+            
+    @tasks = Task.all :order => sort
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @tasks }
+      format.xml  { render :partial => "tasks_list", :layout => false }
     end
   end
 

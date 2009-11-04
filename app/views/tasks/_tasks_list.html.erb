@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th <%= sort_th_class_helper "title" %>><%= sort_link_helper "Title", "title", "tasks" %></th>
+    <th <%= sort_th_class_helper "started" %>><%= sort_link_helper "Started", "started", "tasks" %></th>
+    <th>Found</th>
+    <th <%= sort_th_class_helper "done" %>><%= sort_link_helper "Done", "done", "tasks" %></th>
+    <th>Low estimate</th>
+    <th>Hight estimate</th>
+    <th <%= sort_th_class_helper "initial_estimate" %>><%= sort_link_helper "Initial Estimate", "initial_estimate", "tasks" %></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%=h task.title %></td>
+    <td><%=h task.started %></td>
+    <td><%=h task.found %></td>
+    <td><%=h task.done %></td>
+    <td><%=h task.low_estimate %></td>
+    <td><%=h task.high_estimate %></td>
+    <td><%=h task.initial_estimate %></td>
+    <td><%= link_to 'Show', task %></td>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
