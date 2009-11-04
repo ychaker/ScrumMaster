@@ -31,69 +31,24 @@
 <%= link_to 'Burndown', :action => :burndown, :params => {:id => @sprint.id} %>
 
 <table>
-	<th>Task</th>
-	<th>Started</th>
-	<th>Found?</th>
-	<th>Done?</th>
+	<th <%= sort_th_class_helper "title" %>><%= sort_tasks_table_helper "Task", "title" %></th>
+	<th <%= sort_th_class_helper "started" %>><%= sort_tasks_table_helper "Started", "started" %></th>
+	<th <%= sort_th_class_helper "found" %>><%= sort_tasks_table_helper "Found", "found" %></th>
+	<th <%= sort_th_class_helper "done" %>><%= sort_tasks_table_helper "Done", "done" %></th>
 	<th>Who</th>
-	<th>Low Estimate</th>
-	<th>High Estimate</th>
-	<th>Initial Estimate</th>
+	<th <%= sort_th_class_helper "low_estimate" %>><%= sort_tasks_table_helper "Low Estimate", "low_estimate" %></th>
+	<th <%= sort_th_class_helper "high_estimate" %>><%= sort_tasks_table_helper "High Estimate", "high_estimate" %></th>
+	<th <%= sort_th_class_helper "initial_estimate" %>><%= sort_tasks_table_helper "Initial Estimate", "initial_estimate" %></th>
 	<% for workday in @sprint.workdays %>
 		<th><%= workday.to_s(:short) %></th>
 	<% end %>
 	
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>Actual</td>
-		<td><%= @sprint.initial_sum %></td>
-		<% @sprint.sum_per_day.each { |each| %>
-			<td> <%= each %> </td> 
-		<% } %>
-	</tr>
+	<%= sprint_sums_helper('Actual', @sprint.actual) %>
+	<%= sprint_sums_helper('2/3 Estimate', @sprint.two_thirds_estimate) %>
+	<%= sprint_sums_helper('Low Estimate', @sprint.low_estimate) %>
+	<%= sprint_sums_helper('High Estimate', @sprint.high_estimate) %>
 	
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>2/3 Estimate</td>
-		<% @sprint.two_thirds_estimate.each { |each| %>
-			<td> <%= each %> </td> 
-		<% } %>
-	</tr>
-	
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>Low Estimate</td>
-		<% @sprint.low_estimate.each { |each| %>
-			<td> <%= each %> </td> 
-		<% } %>
-	</tr>
-	
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td>High Estimate</td>
-		<% @sprint.high_estimate.each { |each| %>
-			<td> <%= each %> </td> 
-		<% } %>
+
 	</tr>
 	<% for task in @sprint.tasks.ordered(@sort)  %>
 		<%= render :partial => "/tasks/task_partial", :locals => { :task => task } %>

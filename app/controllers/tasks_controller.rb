@@ -15,6 +15,7 @@ class TasksController < ApplicationController
             when "started_reverse"   then "started DESC"
             when "done_reverse" then "done DESC"
             when "initial_estimate_reverse" then "initial_estimate DESC"
+            else "title"
             end
             
     @tasks = Task.all :order => sort

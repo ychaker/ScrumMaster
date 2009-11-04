@@ -15,6 +15,7 @@ class SprintsController < ApplicationController
             when "theme_reverse"   then "theme DESC"
             when "start_date_reverse" then "start_date DESC"
             when "number_of_days_reverse" then "number_of_days DESC"
+            else "title"
             end
     
     @sprints = Sprint.find :all, :order => sort
@@ -29,7 +30,7 @@ class SprintsController < ApplicationController
   # GET /sprints/1.xml
   def show
     @sprint = Sprint.find(params[:id])
-    @sort = params[:sort]
+    @sort = params[:sort].sub(/_reverse/, " DESC") unless params[:sort].nil?
 
     respond_to do |format|
       format.html # show.html.erb

@@ -12,7 +12,7 @@ describe TasksController do
 
   describe "GET index" do
     it "assigns all tasks as @tasks" do
-      Task.stub!(:find).with(:all).and_return([mock_task])
+      Task.should_receive(:find).with(:all, :order => "title").and_return([mock_task])
       get :index
       assigns[:tasks].should == [mock_task]
     end

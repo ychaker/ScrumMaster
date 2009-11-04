@@ -8,7 +8,7 @@ describe SprintsController do
 
   describe "GET index" do
     it "assigns all sprints as @sprints" do
-      Sprint.stub!(:find).with(:all).and_return([mock_sprint])
+      Sprint.should_receive(:find).with(:all, :order => "title").and_return([mock_sprint])
       get :index
       assigns[:sprints].should == [mock_sprint]
     end

@@ -36,7 +36,7 @@ describe Sprint do
     user1.tasks << task1
     user1.tasks << task3
     
-    sprint1.sprint_users.length.should == 1
+    sprint1.users.length.should == 1
   end
   
   it "should get a list of all distinct users" do
@@ -50,6 +50,6 @@ describe Sprint do
     user2 = Factory.create(:user)
     user2.tasks << task2
     
-    sprint1.sprint_users.length.should == 2
+    sprint1.users.length.should == 2
   end
 end
