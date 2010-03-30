@@ -25,7 +25,9 @@ Rails::Initializer.run do |config|
                
   config.gem "gchart",
               :source => "http://gems.github.com"
-  
+              
+  # integrate sunspot for Solr integration
+  config.gem 'sunspot_rails', :lib => 'sunspot/rails'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
