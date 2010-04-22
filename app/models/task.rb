@@ -6,8 +6,7 @@ class Task < ActiveRecord::Base
   validates_numericality_of :low_estimate, :high_estimate, :initial_estimate
   
   named_scope :ordered, lambda {|*args| {:order => (args.first || 'title ASC')} }
-  
-  
+
   def before_validation
     self.initial_estimate = 0.33*self.low_estimate + 0.67*self.high_estimate
   end

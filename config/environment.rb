@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
               
   # integrate sunspot for Solr integration
   config.gem 'sunspot_rails', :lib => 'sunspot/rails'
+  config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -48,3 +49,5 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+require "will_paginate"

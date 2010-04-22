@@ -9,12 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091102143818) do
+ActiveRecord::Schema.define(:version => 20100420140625) do
 
   create_table "cells", :force => true do |t|
     t.date     "day"
     t.integer  "hours"
     t.integer  "task_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "searchable_items", :force => true do |t|
+    t.string   "model"
+    t.string   "field"
+    t.string   "field_type"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
