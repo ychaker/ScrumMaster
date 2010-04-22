@@ -53,4 +53,9 @@ class SearchableItem < ActiveRecord::Base
     end
     @models
   end
+  
+  # find all the fields to search on
+  def self.find_searchable_fields
+    SearchableItem.find(:all).collect { |each| each.field.to_sym }.uniq
+  end
 end

@@ -1,11 +1,11 @@
 class SearchController < ApplicationController
+  before_filter :check_init
   
   def index
     @klasses = SearchableItem.find_grouped_by_model_and_type.keys
     if params[:model].blank? || params[:model] == 'All'
-      klasses = @klasses.collect { |klass| Object.const_get(klass) }
-      @search = Sunspot.search(klasses) do
-        keywords(params[:q])
+      @search = Sunspot.search(@klasses.collect { |klass| Object.const_get(klass) }) do
+        keywords(params[:q], :fields =>  SearchableItem.find_searchable_fields)
         paginate :page => params[:page], :per_page => 15
       end
     else
@@ -16,4 +16,11 @@ class SearchController < ApplicationController
     end
   end
 
+private
+  def check_init
+    unless SunspotSearch.search_enabled?(SearchableItem.find_grouped_by_model_and_type.keys)
+      render "not_ready"
+      return
+    end
+  end
 end

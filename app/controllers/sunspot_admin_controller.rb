@@ -6,6 +6,7 @@ class SunspotAdminController < ApplicationController
     @unprepared = SearchableItem.find(:all, :conditions => {:status => SearchableItem::NOTPREPARED}, :order => :model)
     @prepared = SearchableItem.find(:all, :conditions => {:status => SearchableItem::PREPARED}, :order => :model)
     @indexed = SearchableItem.find(:all, :conditions => {:status => SearchableItem::INDEXED}, :order => :model)
+    @ready = SunspotSearch.search_enabled?(SearchableItem.find_grouped_by_model_and_type.keys)
   end
   
   def make_searchable

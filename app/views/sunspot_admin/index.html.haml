@@ -2,7 +2,11 @@
 
 .status
 	%p
-		- if !@unprepared.blank? && @unprepared.count > 0
+		- if !@ready
+			Status: Search is not enabled! Make sure you have selected attributes to index. If you have, click
+			= link_to 'here', :action => :make_searchable, :controller => :sunspot_admin 
+			to enable search.
+		- elsif !@unprepared.blank? && @unprepared.count > 0
 			Status: You have added searchable items but have not made then indexable. Click 
 			= link_to 'here', :action => :make_searchable, :controller => :sunspot_admin 
 			to make them indexable, or click 
