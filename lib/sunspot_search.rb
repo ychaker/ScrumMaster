@@ -9,7 +9,7 @@ module SunspotSearch
         searchable do
           hash.each_pair do |type, items|
             # TODO: Use dynamic type instead of just 'string'
-            # example: type items.collect { |each| each.field.to_sym }
+            # example: send type, items.collect { |each| each.field.to_sym }
             items.each do |item|
               text item.field.to_sym
             end
